@@ -1,3 +1,12 @@
+services:
+  - docker
+
+before_install:
+  - docker build -t cheeseboard:web -f Dockerfile.web .
+
+script:
+  - echo "yay?"
+
 deploy:
   provider: heroku
   api_key:
