@@ -1,0 +1,9 @@
+deploy:
+  provider: heroku
+  api_key:
+    secure: Z+yIQ/Lm3QTW6cm0pHiQ+AgR/byx+pYcj9CNovexW1Lj9En7n9oFEhgYwzzgXyWFuhA0BpeZOC7bAMMLTMAbG5EaGsibAzXWD0dewaC4yyK50ezSzCqXCakRLMQox3GwgUJKuUAvsumftLQfGCSgAemGi+NBcjwoF2yTfBdcPDQRC6e3TcOqb8K1LCF9CiVhgCe+N6VvPZmlXbE2j3QGSc8aLkyfCDSv25ryhgd/33jVTgQzf4NjvS3Ubng27JqzJSzwP1Qc/GK8riFtMF5LimugwOlIojN+2U9XmdMOiRvfLm/+vdog9Xh/xKiVOdv2K0vHxxfRSIUwOxPy6nE11ZSs+O+EH8P2dvWHM1VtxQ5CWylpbEqiZMJOXXhv295XtUtZNUDxgZzbqY1GzGiU2AGVUIWHLnTexK8Th9ujVgsyU1vFUvguFPPY5lW0yDTlVUQHOregXQ/MnJywrVPBqms3kofa/b0MyVIN2yjCZNkzEbOYKwOtDXGwD/vXoAj3es1m0Unl/Dy8Dyo7xSPgqJeZWnnnIYxqoHgFfzENVkKgM2eyCCssoSv4s47zk8gGoxdRp5wZLvlfGLjar2srYyYALbc/M/wy32pYMkO5PCHQw5wIApFiY6LMJ1FZCyjG/pcAN0S4BsVuz8pZWprwUxroLNisSsU0yeDdm+R5tFc=
+  app: cheeseboard
+  on:
+    repo: sakolkar/cheeseboard
+    branch: master
+  skip_cleanup: 'true'
