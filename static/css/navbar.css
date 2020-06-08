@@ -1,0 +1,4 @@
+.navbar {
+  border-bottom: 2px solid var(--secondary-yellow);
+  z-index: 1;
+}

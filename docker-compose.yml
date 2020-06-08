@@ -6,7 +6,20 @@ services:
       dockerfile: Dockerfile.web
     ports: 
       - 8000:80
+      - 8888:8888
     environment:
       PORT: 80
+      TWITCH_CLIENT_ID: ${TWITCH_CLIENT_ID}
+      TWITCH_CLIENT_SECRET: ${TWITCH_CLIENT_SECRET}
     volumes:
       - ./static:/static
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile.bot
+    environment:
+      TWITCH_CLIENT_ID: ${TWITCH_CLIENT_ID}
+      TWITCH_CLIENT_SECRET: ${TWITCH_CLIENT_SECRET}
+      TWITCH_CHANNELS: ${TWITCH_CHANNELS}
+      TWITCH_IRC_TOKEN: ${TWITCH_IRC_TOKEN}
+      API_URL: ${API_URL}

@@ -2,6 +2,7 @@ const Clip = {
   name: 'Clip',
   template: `
     <div>
+    <!--
       <iframe
         :style="style"
         :src="'https://clips.twitch.tv/embed?clip=' \
@@ -16,6 +17,7 @@ const Clip = {
         scrolling="no"
         allowfullscreen="true">
       </iframe>
+      -->
     </div>
   `,
   props: [ 'clip' ],
