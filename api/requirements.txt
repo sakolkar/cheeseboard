@@ -2,4 +2,4 @@ flask
 gunicorn
 pytest
 pytest-cov
-
+requests

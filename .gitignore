@@ -1,2 +1,5 @@
 env.*
 !env.sample
+**__pycache__/
+.*.swp
+.*.swo

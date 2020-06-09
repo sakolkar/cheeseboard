@@ -11,7 +11,10 @@ services:
       PORT: 80
       TWITCH_CLIENT_ID: ${TWITCH_CLIENT_ID}
       TWITCH_CLIENT_SECRET: ${TWITCH_CLIENT_SECRET}
+      DATABASE_URL: ${DATABASE_URL}
     volumes:
+      - ./models:/app/models
+      - ./api:/app/api
       - ./static:/static
   bot:
     build:
@@ -23,3 +26,5 @@ services:
       TWITCH_CHANNELS: ${TWITCH_CHANNELS}
       TWITCH_IRC_TOKEN: ${TWITCH_IRC_TOKEN}
       API_URL: ${API_URL}
+    volumes:
+      - ./bot:/app/bot

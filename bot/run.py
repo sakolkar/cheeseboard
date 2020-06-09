@@ -2,6 +2,7 @@ from twitchio.ext import commands
 import os
 import logging
 import sys
+from logic import Logic
 
 
 class Bot(commands.Bot):
@@ -18,21 +19,20 @@ class Bot(commands.Bot):
         logger.info(f'Ready | {self.nick}')
 
     async def event_message(self, message):
-        logger.info(' '.join([
-            str(message.author.name),
-            str(message.author.id),
-            str(message.author.tags),
-            str(message.content)]))
         await self.handle_commands(message)
 
-    @commands.command(name='hello')
-    async def my_command(self, ctx):
-        await ctx.send(f'Hello {ctx.author.tags["display-name"]}!')
+    @commands.command(name='submit')
+    async def submit_cmd(self, ctx):
+        if Logic.submission(message=ctx.message, logger=logger):
+            await ctx.send(f'{Logic.randstr()} | Thanks {ctx.author.tags["display-name"]}! Your clips have been submitted.')
+        else:
+            await ctx.send(f'{Logic.randstr()} | Sorry {ctx.author.tags["display-name"]}, that submission failed.')
 
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 handler = logging.StreamHandler(sys.stdout)
 logger.addHandler(handler)
+sys.stderr = sys.stdout
 bot = Bot()
 bot.run()
