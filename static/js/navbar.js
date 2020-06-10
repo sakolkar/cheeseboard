@@ -3,7 +3,7 @@ const Navbar = {
   template: `
     <div>
       <nav class="navbar navbar-expand-lg navbar-dark shadow-yellow \
-                  bg-gray-pri">
+                  bg-gray">
 
         <a class="navbar-brand d-flex" href="/">
 
@@ -19,7 +19,7 @@ const Navbar = {
             <h1 class="mt-1 font-chewy text-yellow">Cheese</h1>
             <span class="mx-1"></span>
             <h1 class="font-playfair text-yellow">Board.</h1>
-          <div>
+          </div>
         </a>
 
         <div class="mx-auto"></div>

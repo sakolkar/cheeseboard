@@ -10,6 +10,9 @@ class Api(Blueprint):
         super().__init__('api', __name__, url_prefix='/api')
         self.add_url_rule('/', None, self.get_root, strict_slashes=False)
         self.add_url_rule('/submit', None, self.post_submit, methods=['POST'], strict_slashes=False)
+        self.add_url_rule('/tier1', None, self.get_tier_1, strict_slashes=False)
+        self.add_url_rule('/tier2', None, self.get_tier_2, strict_slashes=False)
+        self.add_url_rule('/users', None, self.get_users, strict_slashes=False)
         self.logger = logger
 
     def get_root(self):
@@ -38,3 +41,23 @@ class Api(Blueprint):
             g.db_session.commit()
 
         return make_response(jsonify({}), HTTPStatus.CREATED)
+
+    def get_tier_1(self):
+        clips = []
+        for clip in g.db_session.query(Clip).order_by(Clip.created_at).all():
+            if clip.is_tier_1:
+                clips.append(clip.as_dict)
+        return jsonify(clips)
+
+    def get_tier_2(self):
+        clips = []
+        for clip in g.db_session.query(Clip).order_by(Clip.created_at).all():
+            if clip.is_tier_2:
+                clips.append(clip.as_dict)
+        return jsonify(clips)
+
+    def get_users(self):
+        users = []
+        for user in g.db_session.query(User).order_by(User.display_name).all():
+            users.append(user.as_dict)
+        return jsonify(users)

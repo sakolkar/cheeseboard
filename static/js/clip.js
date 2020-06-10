@@ -1,31 +1,25 @@
+import { setClip, setShowPlayer } from './clipplayer.js'
+
 const Clip = {
   name: 'Clip',
   template: `
     <div>
-    <!--
-      <iframe
-        :style="style"
-        :src="'https://clips.twitch.tv/embed?clip=' \
-              + clip.slug \
-              + '&parent=cheeseboard.satyen.dev' \
-              + '&autoplay=false' \
-              + '&muted=true'"
-        preload="metadata"
-        height="270"
-        width="480"
-        frameborder="0"
-        scrolling="no"
-        allowfullscreen="true">
-      </iframe>
-      -->
+      <div class="clip" @click="clicked">
+        <div class="col p-0">
+          <div class="clip-underlay bg-yellow"></div>
+          <img :src="clip.thumbnail" width="350" height="200"/>
+        </div>
+        <h5 class="mt-2 mb-0 text-light-yellow" v-text="clip.title"></h5>
+        <p class="m-0 text-light-yellow">{{ clip.broadcaster }}</p>
+        <p class="m-0 text-light-yellow">Clipped by {{ clip.curator }}</p>
+      </div>
     </div>
   `,
   props: [ 'clip' ],
-  data: function() {
-    return {
-      style: {
-        'border-radius': '5px'
-      },
+  methods: {
+    clicked: function() {
+      setClip(this.clip)
+      setShowPlayer(true)
     }
   }
 }

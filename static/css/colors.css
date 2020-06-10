@@ -1,32 +1,49 @@
 :root {
   --primary-yellow: #f4dd53;
   --secondary-yellow: #e9c01b;
-  --primary-purple: #41145f;
-  --secondary-purple: #08040f;
+  --light-yellow: #d3d2cd;
+  --primary-purple: #9146ff;
+  --secondary-purple: #400b72;
   --primary-gray: #222222;
-  --secondary-gray: #0e0e0e;
 }
 
 .text-yellow {
   color: var(--primary-yellow);
 }
 
+.text-light-yellow {
+  color: var(--light-yellow);
+}
+
 .text-purple {
   color: var(--primary-purple);
 }
 
-.bg-gray-pri {
+.bg-light-yellow {
+  background-color: var(--light-yellow);
+}
+
+.bg-black {
+  background-color: black;
+}
+
+.bg-gray {
   background-color: var(--primary-gray);
 }
 
-.bg-gray-sec {
-  background-color: var(--secondary-gray);
-}
-
-.bg-purple {
-  background-color: var(--secondary-purple);
+.bg-yellow {
+  background-color: var(--secondary-yellow);
 }
 
 .shadow-yellow {
-  box-shadow: 0 -1.5rem 3rem var(--secondary-yellow);
+  box-shadow: 0 0 2rem var(--secondary-yellow);
+}
+
+.shadow-purple {
+  box-shadow: 0 0 2rem var(--primary-purple);
+}
+
+.underline-yellow {
+  text-decoration: underline;
+  text-decoration-color: var(--secondary-yellow);
 }

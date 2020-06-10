@@ -1,0 +1,29 @@
+.clip {
+  margin: 5px;
+  transition-duration: 0.5s;
+  width: 360px;
+  overflow-wrap: break-word;
+}
+
+.clip img {
+  border: 2px solid var(--primary-purple);
+  position: relative;
+  transition-duration: 0.5s;
+}
+
+.clip .clip-underlay {
+  height: 200px;
+  width: 350px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.clip:hover {
+  margin-top: 0;
+}
+
+.clip:hover img {
+  margin-left: 5px;
+  margin-bottom: 5px;
+}

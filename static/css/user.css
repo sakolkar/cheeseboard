@@ -1,0 +1,16 @@
+.user {
+  height: 60px;
+  border-bottom: 2px solid var(--primary-gray);
+  transition-duration: 1s;
+}
+
+.user img {
+  height: 90%;
+  border-radius: 50%;
+  border: 1px 
+}
+
+.user:hover {
+  border-bottom: 2px solid black;
+  box-shadow: 0 0 0.5rem black;
+}

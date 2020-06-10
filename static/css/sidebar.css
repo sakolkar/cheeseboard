@@ -1,0 +1,21 @@
+.sidebar-underlay {
+  width: 250px;
+  position: fixed;
+  right: 0;
+  top: 100px;
+  bottom: 0;
+  overflow-x: hidden;
+  border-left: 2px solid var(--primary-purple);
+  z-index: 1;
+}
+
+.sidebar {
+  width: 250px;
+  position: fixed;
+  right: 0;
+  top: 100px;
+  bottom: 0;
+  overflow-x: hidden;
+  border-left: 2px solid var(--primary-purple);
+  z-index: 3;
+}

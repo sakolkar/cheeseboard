@@ -17,3 +17,29 @@ class Clip(b.Model, b.Base):
     duration = sa.Column(sa.Float)
     created_at = sa.Column(sa.DateTime)
     thumbnail = sa.Column(sa.String())
+
+    @property
+    def is_tier_1(self):
+        if any(self.users_tier_1):
+            return True
+        return False
+
+    @property
+    def is_tier_2(self):
+        if not any(self.users_tier_1) and any(self.users_tier_2):
+            return True
+        return False
+
+    @property
+    def as_dict(self):
+        return {
+            'slug': self.slug,
+            'broadcaster': self.broadcaster.display_name,
+            'curator': self.curator.display_name,
+            'game': self.game,
+            'title': self.title,
+            'views': self.views,
+            'duration': self.duration,
+            'created_at': self.created_at.timestamp(),
+            'thumbnail': self.thumbnail
+        }
