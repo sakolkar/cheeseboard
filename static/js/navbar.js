@@ -8,7 +8,7 @@ const Navbar = {
         <a class="navbar-brand d-flex" href="#">
 
           <audio ref="aud" src="../aud/spaghetti-cut.mp3" type="audio/mpeg"></audio>
-          <img src="../img/chwToast.png" width="48" height="48"/>
+          <img src="../img/chwToast.png" width="32" height="32" style="margin-top: 16px"/>
           <img src="../img/chwWow.png" width="48" height="48"/>
           <span class="mx-1"></span>
           <div @click="playAud">
