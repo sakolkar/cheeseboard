@@ -19,14 +19,6 @@ Object.defineProperty(Vue.prototype, "$showPlayer", {
   }
 })
 
-let setClip = function(clip) {
-  currentClip.currentClip = clip
-}
-
-let setShowPlayer = function(show) {
-  showPlayer.showPlayer = show
-}
-
 const ClipPlayer = {
   name: 'ClipPlayer',
   template: `
@@ -37,7 +29,7 @@ const ClipPlayer = {
           :src="'https://clips.twitch.tv/embed?clip=' \
                 + this.$currentClip.slug \
                 + '&parent=cheeseboard.satyen.dev' \
-                + '&autoplay=true' \
+                + '&autoplay=false' \
                 + '&muted=false'"
           preload="metadata"
           height="596.25"
@@ -52,19 +44,12 @@ const ClipPlayer = {
   mounted() {
     this.$refs.player.focus()
   },
-  watch: {
-    $currentClip () {
-      console.log("currentClip has changed")
-    },
-    $showPlayer () {
-      console.log("showPlayer has changed")
-    }
-  },
   methods: {
     close: function() {
       this.$showPlayer = false
+      this.$currentClip = null
     }
   }
 }
 
-export { setClip, setShowPlayer, ClipPlayer }
+export { ClipPlayer }

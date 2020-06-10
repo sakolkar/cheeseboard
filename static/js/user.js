@@ -2,7 +2,7 @@ const User = {
   name: 'User',
   template: `
     <div>
-      <div class="user d-flex w-100 pl-3 py-2 align-items-center">
+      <div class="user d-flex w-100 pl-3 py-2 align-items-center" @click="setCurrentUser">
         <img :src="user.logo"/>
         <span class="mx-2"></span>
         <div>
@@ -12,6 +12,11 @@ const User = {
     </div>
   `,
   props: [ 'user' ],
+  methods: {
+    setCurrentUser: function() {
+      this.$currentUser = this.user
+    }
+  }
 }
 
 export { User }

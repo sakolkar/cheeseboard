@@ -30,7 +30,18 @@ class Api(Blueprint):
             g.db_session.add(user)
             g.db_session.commit()
 
+        # if only one clip submitted and user's second clip is unset
+        # set second clip
+        if (
+            data['user'][f'slug_1'] and not data['user'][f'slug_2']
+            and user.clip_1 is not None and user.clip_2 is None
+        ):
+            data['user'][f'slug_2'] = data['user'][f'slug_1']
+            data['user'][f'slug_1'] = None
+
         for num in [1, 2]:
+            if data['user'][f'slug_{num}'] is None:
+                continue
             clip = g.db_session.query(Clip).filter_by(slug=data['user'][f'slug_{num}']).first()
             if clip is None:
                 clip = Logic.load_twitch_clip(slug=data['user'][f'slug_{num}'])

@@ -1,16 +1,13 @@
 import models.base as b
 import sqlalchemy as sa
-import sqlalchemy.orm as so
 
 
 class Clip(b.Model, b.Base):
     __tablename__ = 'clip'
 
     slug = sa.Column(sa.String())
-    broadcaster_id = sa.Column(sa.Integer, sa.ForeignKey('user.id'))
-    broadcaster = so.relationship('User', foreign_keys=[broadcaster_id])
-    curator_id = sa.Column(sa.Integer, sa.ForeignKey('user.id'))
-    curator = so.relationship('User', foreign_keys=[curator_id])
+    broadcaster = sa.Column(sa.String())
+    curator = sa.Column(sa.String())
     game = sa.Column(sa.String())
     title = sa.Column(sa.String())
     views = sa.Column(sa.Integer)
@@ -34,12 +31,14 @@ class Clip(b.Model, b.Base):
     def as_dict(self):
         return {
             'slug': self.slug,
-            'broadcaster': self.broadcaster.display_name,
-            'curator': self.curator.display_name,
+            'broadcaster': self.broadcaster,
+            'curator': self.curator,
             'game': self.game,
             'title': self.title,
             'views': self.views,
             'duration': self.duration,
             'created_at': self.created_at.timestamp(),
-            'thumbnail': self.thumbnail
+            'thumbnail': self.thumbnail,
+            'users': [ u.display_name for u in self.users_tier_1 ] + \
+                     [ u.display_name for u in self.users_tier_2 ],
         }

@@ -1,14 +1,15 @@
 .clip {
   margin: 5px;
-  transition-duration: 0.5s;
+  transition-duration: 0.2s;
   width: 360px;
   overflow-wrap: break-word;
+  cursor: pointer;
 }
 
-.clip img {
+.clip .clip-thumbnail {
   border: 2px solid var(--primary-purple);
   position: relative;
-  transition-duration: 0.5s;
+  transition-duration: 0.2s;
 }
 
 .clip .clip-underlay {
@@ -19,11 +20,28 @@
   bottom: 0;
 }
 
+.clip .clip-overlay {
+  visibility: hidden;
+  height: 200px;
+  width: 350px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: visibility 0.1s, margin 0.2s;
+}
+
 .clip:hover {
   margin-top: 0;
 }
 
-.clip:hover img {
+.clip:hover .clip-thumbnail {
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.clip:hover .clip-overlay {
+  visibility: visible;
   margin-left: 5px;
   margin-bottom: 5px;
 }

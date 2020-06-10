@@ -5,11 +5,10 @@ const ClipsGroup = {
   template: `
     <div>
       <div class="container col-12">
-        <h2 class="text-light-yellow underline-yellow" v-text="name"></h2>
         <div class="d-flex flex-wrap justify-content-center">
-          <Clip v-for="clip in clips" :key="clip.id" :clip="clip"
-                class="ml-3 mt-3">
-          </Clip>
+          <div v-for="clip in clips" :key="clip.id">
+            <Clip v-if="showClip(clip)" :clip="clip" class="ml-3 mt-3"></Clip>
+          </div>
         </div>
       </div>
     </div>
@@ -34,6 +33,17 @@ const ClipsGroup = {
       .catch((err) => {
         console.log(err)
       })
+  },
+  methods: {
+    showClip: function(clip) {
+      if (this.$currentUser == null) {
+        return true
+      }
+      if (clip.users.includes(this.$currentUser.display_name)) {
+        return true
+      }
+      return false
+    }
   }
 }
 

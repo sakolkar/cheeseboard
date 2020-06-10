@@ -5,11 +5,16 @@ const Navbar = {
       <nav class="navbar navbar-expand-lg navbar-dark shadow-yellow \
                   bg-gray">
 
-        <a class="navbar-brand d-flex" href="/">
+        <a class="navbar-brand d-flex" href="#">
 
+          <audio ref="aud" src="../aud/spaghetti-cut.mp3" type="audio/mpeg"></audio>
           <img src="../img/chwToast.png" width="48" height="48"/>
-          <img src="../img/chwF.png" width="48" height="48"/>
-          <img src="../img/Clap.gif" width="48" height="48"/>
+          <img src="../img/chwWow.png" width="48" height="48"/>
+          <span class="mx-1"></span>
+          <div @click="playAud">
+            <img src="../img/chwF.png" width="48" height="48"/>
+            <img src="../img/Clap.gif" width="48" height="48"/>
+          </div>
 
           <span class="mx-1"></span>
 
@@ -30,6 +35,11 @@ const Navbar = {
       </nav>
     </div>
   `,
+  methods: {
+    playAud: function() {
+      this.$refs.aud.play()
+    }
+  }
 }
 
 export { Navbar }

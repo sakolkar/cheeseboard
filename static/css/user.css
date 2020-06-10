@@ -1,7 +1,21 @@
+.clear-user {
+  width: 100%;
+  height: 60px;
+  background-color: var(--primary-purple);
+  border: 2px solid var(--primary-purple);
+  cursor: pointer;
+}
+
+.clear-user:hover {
+  border: 2px solid var(--secondary-purple);
+  box-shadow: 0 0 1rem var(--secondary-purple);
+}
+
 .user {
   height: 60px;
   border-bottom: 2px solid var(--primary-gray);
-  transition-duration: 1s;
+  transition-duration: 0.2s;
+  cursor: pointer;
 }
 
 .user img {

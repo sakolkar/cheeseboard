@@ -48,20 +48,10 @@ class Logic:
             })
 
         if response.status_code == HTTPStatus.OK:
-            broadcaster = g.db_session.query(User).filter_by(twitch_id=response.json()['broadcaster']['id']).first()
-            if broadcaster is None:
-                broadcaster = Logic.new_user(**response.json()['broadcaster'])
-                g.db_session.add(broadcaster)
-
-            curator = g.db_session.query(User).filter_by(twitch_id=response.json()['curator']['id']).first()
-            if curator is None:
-                curator = Logic.new_user(**response.json()['curator'])
-                g.db_session.add(curator)
-
             return Clip(
                 slug = response.json()['slug'],
-                broadcaster = broadcaster,
-                curator = curator,
+                broadcaster = response.json()['broadcaster']['display_name'],
+                curator = response.json()['curator']['display_name'],
                 game = response.json()['game'],
                 title = response.json()['title'],
                 views = response.json()['views'],
