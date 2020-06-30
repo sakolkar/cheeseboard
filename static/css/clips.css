@@ -31,6 +31,17 @@
   transition: visibility 0.1s, margin 0.2s;
 }
 
+.clip .clip-watched {
+  visibility: visible;
+  height: 200px;
+  width: 350px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(145, 70, 255, 0.4);
+  transition: visibility 0.1s, margin 0.2s;
+}
+
 .clip:hover {
   margin-top: 0;
 }
@@ -42,6 +53,12 @@
 
 .clip:hover .clip-overlay {
   visibility: visible;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.clip:hover .clip-watched {
+  visibility: hidden;
   margin-left: 5px;
   margin-bottom: 5px;
 }

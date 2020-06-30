@@ -47,3 +47,7 @@
   text-decoration: underline;
   text-decoration-color: var(--secondary-yellow);
 }
+
+.purple-translucent {
+  background-color: rgba(145, 70, 255, 0.2);
+}

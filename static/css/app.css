@@ -19,3 +19,7 @@
   z-index: 4;
   padding: 2rem;
 }
+
+.player-open {
+  overflow-y: hidden;
+}

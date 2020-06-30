@@ -29,6 +29,16 @@ const ClipsGroup = {
     axios.get(this.clipsEndpoint)
       .then((res) => {
         this.clips = res.data
+        var history = localStorage.getItem('history')
+        var watchedClips = new Array()
+        if (history != null) {
+          watchedClips = history.split('|')
+        }
+        for (let c of this.clips) {
+          if (watchedClips.includes(c.slug)) {
+            c.watched = true
+          }
+        }
       })
       .catch((err) => {
         console.log(err)

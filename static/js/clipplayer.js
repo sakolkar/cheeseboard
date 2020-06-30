@@ -43,11 +43,13 @@ const ClipPlayer = {
   `,
   mounted() {
     this.$refs.player.focus()
+    $('#appcontent').addClass('player-open')
   },
   methods: {
     close: function() {
       this.$showPlayer = false
       this.$currentClip = null
+      $('#appcontent').removeClass('player-open')
     }
   }
 }

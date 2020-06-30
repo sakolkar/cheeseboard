@@ -13,7 +13,7 @@ const App = {
       <Navbar></Navbar>
       <Sidebar></Sidebar>
       <br class="pt-5">
-      <div class="appcontent">
+      <div id="appcontent" class="appcontent">
         <Tier1></Tier1>
         <Tier2 class="mt-5"></Tier2>
         <ClipPlayer v-if="this.$showPlayer"></ClipPlayer>
